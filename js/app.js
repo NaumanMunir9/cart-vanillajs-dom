@@ -67,5 +67,20 @@
   });
 
   // showTotal function
-  function showTotal() {}
+  function showTotal() {
+    const total = [];
+    const items = document.querySelectorAll(".cart-item-price");
+
+    items.forEach(function (item) {
+      total.push(parseFloat(item.textContent));
+    });
+
+    const totalMoney = total.reduce(function (total, item) {
+      total += item;
+      return total;
+    }, 0);
+
+    const finalMoney = totalMoney.toFixed(2);
+    console.log(finalMoney);
+  }
 })();
