@@ -34,7 +34,7 @@
         item.price = finalPrice;
 
         const cartItem = document.createElement("div");
-        cartItem.classList(
+        cartItem.classList.add(
           "cart-item",
           "d-flex",
           "justify-content-between",
@@ -56,7 +56,16 @@
           `;
 
         // select cart
+        const cart = document.getElementById("cart");
+        const total = document.querySelector(".cart-total-container");
+        cart.insertBefore(cartItem, total);
+        console.log("item added to the cart");
+
+        showTotal();
       }
     });
   });
+
+  // showTotal function
+  function showTotal() {}
 })();
