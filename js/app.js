@@ -20,6 +20,7 @@
 
         const item = {};
         item.img = `img-cart${partialPath}`;
+
         let name =
           e.target.parentElement.parentElement.nextElementSibling.children[0]
             .children[0].textContent;
@@ -32,7 +33,29 @@
 
         item.price = finalPrice;
 
-        console.log(item);
+        const cartItem = document.createElement("div");
+        cartItem.classList(
+          "cart-item",
+          "d-flex",
+          "justify-content-between",
+          "text-capitalize",
+          "my-3"
+        );
+
+        cartItem.innerHTML = `
+            <img src="${item.img}" class="img-fluid rounded-circle" id="item-img" alt="">
+            <div class="item-text">
+
+              <p id="cart-item-title" class="font-weight-bold mb-0">${item.name}</p>
+              <span>$</span>
+              <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
+            </div>
+            <a href="#" id='cart-item-remove' class="cart-item-remove">
+              <i class="fas fa-trash"></i>
+            </a>
+          `;
+
+        // select cart
       }
     });
   });
